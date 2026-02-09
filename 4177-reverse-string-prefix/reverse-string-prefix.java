@@ -4,10 +4,16 @@ class Solution {
         {
             k=s.length();
         }
-        StringBuilder str = new StringBuilder();
-        str.append(s,0,k);
-        str.reverse();
-        str.append(s,k,s.length());
-        return str.toString();
+        char[] ch = s.toCharArray();
+        int l=0,r=k-1;
+        while(l<r)
+        {
+            char temp =ch[r];
+            ch[r]=ch[l];
+            ch[l]=temp;
+            l++;
+            r--;
+        }
+        return new String(ch);
     }
 }
