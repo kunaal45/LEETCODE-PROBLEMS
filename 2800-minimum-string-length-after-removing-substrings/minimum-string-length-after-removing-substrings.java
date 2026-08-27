@@ -1,28 +1,21 @@
 class Solution {
     public int minLength(String s) {
-    
-    String a ="AB",b = "CD";
+
     Deque<Character> st = new ArrayDeque<>();
-    for(int i=0;i<s.length();i++)
+    
+    for(char ch : s.toCharArray())
     {
-        StringBuilder sc = new StringBuilder();
-        if(st.size()==0)
+        if(!st.isEmpty())
         {
-            st.push(s.charAt(i));
-        }
-        else
-        {
-            sc.append(st.peek());
-            sc.append(s.charAt(i));
-            if(sc.toString().equals(a) || sc.toString().equals(b))
+            char top = st.peek();
+            if((top=='A' && ch=='B') || (top=='C'  && ch=='D'))
             {
                 st.pop();
+                continue;
             }
-            else
-            {
-                st.push(s.charAt(i));
-            }
-        }   
+        }
+            st.push(ch);
+
     }
     return st.size();   
     }
