@@ -2,7 +2,7 @@ class Solution {
     public int minLength(String s) {
     
     String a ="AB",b = "CD";
-    Stack<Character> st = new Stack<>();
+    Deque<Character> st = new ArrayDeque<>();
     for(int i=0;i<s.length();i++)
     {
         StringBuilder sc = new StringBuilder();
